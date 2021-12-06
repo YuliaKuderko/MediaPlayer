@@ -17,6 +17,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -159,9 +160,9 @@ public class MainActivity extends AppCompatActivity implements SongInfoFragment.
                 int startPosition = viewHolder.getAdapterPosition();
                 int endPosition = target.getAdapterPosition();
                 Collections.swap(songs, startPosition, endPosition);
+                saveData();
                 if(recyclerView.getAdapter()!=null)
                     songAdapter.notifyItemMoved(startPosition,endPosition);
-                    saveData();
                 return true;
             }
             @Override
@@ -171,6 +172,13 @@ public class MainActivity extends AppCompatActivity implements SongInfoFragment.
                 dialog.setContentView(R.layout.delete_song_dialog);
                 dialog.setCanceledOnTouchOutside(false);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+            dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+                @Override
+                public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                    // Prevent dialog close on back press button
+                    return keyCode == KeyEvent.KEYCODE_BACK;
+                }
+            });
             Button positive_btn = dialog.findViewById(R.id.yes_delete_btn);
                 positive_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -192,23 +200,28 @@ public class MainActivity extends AppCompatActivity implements SongInfoFragment.
                     dialog.dismiss();
                     Toast.makeText(MainActivity.this, "Canceled!", Toast.LENGTH_SHORT).show();
                 }
+
             });
 
                 dialog.show();
         }
+
     };
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
         recyclerView.setAdapter(songAdapter);
     }
 
+
+
     @Override
     public void addSong(String nameS, String nameA, String link, String imagePath) {
         Fragment fragmentManager = getSupportFragmentManager().findFragmentByTag(ADD_TAG);
         getSupportFragmentManager().beginTransaction().remove(fragmentManager).commit();
         visibility();
-        songs.add(new Song(nameS,nameA,link,imagePath));
+        songs.add(new Song(nameS,nameA,imagePath, link));
         saveData();
+        songAdapter.notifyDataSetChanged();
     }
 
     private void visibility() {
@@ -220,9 +233,10 @@ public class MainActivity extends AppCompatActivity implements SongInfoFragment.
         getFragmentManager().beginTransaction().commit();
     }
 
-    private void loadData() {
-        try {
-            FileInputStream fis = openFileInput("songList.dat");
+
+        private void loadData() {
+            try {
+                FileInputStream fis = openFileInput("songList.dat");
             ObjectInputStream ois = new ObjectInputStream(fis);
             songs = (ArrayList<Song>) ois.readObject();
             ois.close();
@@ -247,5 +261,12 @@ public class MainActivity extends AppCompatActivity implements SongInfoFragment.
             e.printStackTrace();
         }
     }
-}
+
+    @Override
+    public void onBackPressed() {
+        if(getSupportFragmentManager().getBackStackEntryCount()>0){
+            getSupportFragmentManager().popBackStack();
+            visibility();
+        }
+}}
 

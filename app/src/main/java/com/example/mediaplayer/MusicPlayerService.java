@@ -208,4 +208,8 @@ public class MusicPlayerService extends Service implements MediaPlayer.OnComplet
                 });
 
     }
+    public void updateUI (String songName, String artist){
+        remoteViews.setTextViewText(R.id.song_name_notification, artist+" - "+songName);
+        manager.notify(1, builder.build());
+    }
 }

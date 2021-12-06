@@ -50,7 +50,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
         holder.artistTv.setText(song.getArtist());
      //   Picasso.get().load(song.getImageResId()).centerCrop().fit().into(holder.imageIv);
         Glide.with(context).load(song.getImageResId()).centerCrop().into(holder.imageIv);
-//        holder.link.setText(song.getLink());
+       //holder.link.setText(song.getLink());
     }
 
     @Override

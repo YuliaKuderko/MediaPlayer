@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="250dp"
+    android:layout_height="270dp"
     android:orientation="vertical"
     android:background="@drawable/media_player_background2"
     android:padding="15dp"
@@ -11,17 +11,15 @@
     <ImageButton
         android:layout_width="30dp"
         android:layout_height="30dp"
-       android:background="@drawable/exit_selector"
-        android:scaleType="fitXY"
+        android:background="@drawable/exit_selector"
         android:id="@+id/close_btn"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="5dp"/>
+        android:layout_alignParentEnd="true" />
 
     <ImageView
         android:layout_width="100dp"
         android:layout_height="120dp"
         android:layout_gravity="start"
-        android:layout_margin="10dp"
+        android:layout_below="@+id/close_btn"
         android:id="@+id/song_image_notification" />
 
     <TextView
@@ -29,9 +27,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/song_name_notification"
         android:text="Song Name"
+        android:layout_below="@+id/close_btn"
         android:layout_toEndOf="@+id/song_image_notification"
         android:shadowColor="@color/white"
         android:shadowRadius="10"
+        android:layout_marginStart="5dp"
         android:fontFamily="@font/harlow"
         android:textColor="@color/white"
         android:textSize="25sp"
@@ -45,6 +45,7 @@
         android:text="Song Artist"
         android:gravity="center"
         android:fontFamily="@font/harlow"
+        android:layout_marginStart="5dp"
         android:textColor="@color/white"
         android:textSize="17sp"
         android:layout_toEndOf="@+id/song_image_notification"
@@ -55,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/song_image_notification"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layoutDirection="ltr"
         android:gravity="center">
 

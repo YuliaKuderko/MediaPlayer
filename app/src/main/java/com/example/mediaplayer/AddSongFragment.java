@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
@@ -76,7 +77,7 @@ public class AddSongFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
-            imagePath = file.getAbsolutePath();
+            //imagePath = file.getPath();
             Glide
                     .with(AddSongFragment.this)
                     .load(imageUri)
@@ -158,6 +159,10 @@ public class AddSongFragment extends Fragment {
                 link =songLink.getText().toString();
                 if(nameS!=null&&nameA!=null&&link!=null&&imageUri!=null){
                     callBack.addSong(nameS,nameA,link,imageUri.toString());
+                    rootView.setVisibility(View.VISIBLE);
+                }
+                else{
+                    Toast.makeText(context, "You have to take a photo or pick one from your gallery ↑ ", Toast.LENGTH_SHORT).show();
                 }
             }
         });

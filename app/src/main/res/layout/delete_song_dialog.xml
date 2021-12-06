@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/corners"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layoutDirection="ltr">
 
     <pl.droidsonroids.gif.GifImageView
         android:layout_width="200dp"
@@ -51,7 +52,7 @@
             android:text="Cancel"
             android:background="@drawable/no_selector"
             android:textStyle="italic|bold"
-            android:textColor="#ff1f1f"
+            android:textColor="#9e0000"
             android:fontFamily="@font/bradly"
             android:layout_marginStart="30dp"
             android:layout_gravity="top"
