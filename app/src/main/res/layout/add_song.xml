@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="40dp"
+    android:layout_centerInParent="true"
+    android:layout_gravity="center"
+    android:id="@+id/info_layout"
+    android:background="@drawable/media_player_background2">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/bradly"
+        android:padding="5dp"
+        android:shadowColor="@color/white"
+        android:shadowRadius="30"
+        android:text="Enter song name:"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        android:textStyle="bold|italic" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/grey"
+        android:layout_gravity="center"
+        android:textStyle="bold|italic"
+        android:shadowColor="@color/white"
+        android:shadowRadius="3"
+        android:padding="5dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border"
+        android:id="@+id/add_song_name"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter artist name:"
+        android:textSize="23sp"
+        android:fontFamily="@font/bradly"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:textStyle="bold|italic"
+        android:layout_marginTop="20dp"
+        android:shadowColor="@color/white"
+        android:shadowRadius="30"
+        android:padding="5dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/grey"
+        android:layout_gravity="center"
+        android:textStyle="bold|italic"
+        android:shadowColor="@color/white"
+        android:shadowRadius="3"
+        android:background="@drawable/border"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:id="@+id/add_artist_name"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter a song link:"
+        android:textSize="23sp"
+        android:fontFamily="@font/bradly"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:textStyle="bold|italic"
+        android:layout_marginTop="20dp"
+        android:shadowColor="@color/white"
+        android:shadowRadius="30"
+        android:padding="5dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:background="@drawable/border"
+        android:shadowColor="@color/white"
+        android:shadowRadius="3"
+        android:textColor="@color/grey"
+        android:layout_gravity="center"
+        android:textStyle="bold|italic"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:inputType="textUri"
+        android:id="@+id/add_song_link"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginStart="17dp"
+        android:layoutDirection="ltr"
+        android:layout_marginTop="20dp">
+
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/camera_selector"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            android:id="@+id/add_camera_pic"/>
+
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/gallery_selector"
+            android:scaleType="fitCenter"
+            android:layout_marginStart="20dp"
+            android:id="@+id/add_gallery_pic"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:id="@+id/show_image"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layoutDirection="ltr"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:fontFamily="@font/bradly"
+            android:padding="10dp"
+            android:textSize="23sp"
+            android:background="@drawable/sumbit_selector"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:id="@+id/submit_btn"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:fontFamily="@font/bradly"
+            android:padding="10dp"
+            android:textSize="23sp"
+            android:background="@drawable/no_selector"
+            android:textColor="#9e0000"
+            android:layout_marginStart="20dp"
+            android:textStyle="bold"
+            android:id="@+id/cancel_btn"/>
+
+    </LinearLayout>
+
+</LinearLayout>
